@@ -1,4 +1,4 @@
-#¿ª·¢ÅäÖÃ
+#å¼€å‘é…ç½®
 spring:
   mvc:
     favicon:enabled=false:
@@ -6,21 +6,23 @@ spring:
   #    static-locations: classpath:/;
   thymeleaf:
     cache:  false
-  #Êı¾İÔ´ÅäÖÃ
+  #æ•°æ®æºé…ç½®
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://118.178.254.81:3306/siha_beer?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://127.0.0.1:3306/siha_beer?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
-#mybatisÅäÖÃ
+#mybatisé…ç½®
 mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
   typeAliasesPackage: com.sihabeer.entity
   mapperLocations: classpath:mapper/*.xml
 
-# ·ÖÒ³ÅäÖÃĞÅÏ¢
+# åˆ†é¡µé…ç½®ä¿¡æ¯
 pagehelper:
   helper-dialect: mysql
   reasonable: true
