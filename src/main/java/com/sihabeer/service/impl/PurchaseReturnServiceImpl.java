@@ -16,7 +16,7 @@ public class PurchaseReturnServiceImpl implements PurchaseReturnService {
     private PurchaseReturnMapper purchaseReturnMapper;
     @Override
     public int insertPurchaseReturn(PurchaseReturn purchaseReturn) {
-        return 0;
+        return purchaseReturnMapper.insertPurchaseReturn(purchaseReturn);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class PurchaseReturnServiceImpl implements PurchaseReturnService {
 
     @Override
     public int deletePurchaseReturn(String id) {
-        return 0;
+        return purchaseReturnMapper.deletePurchaseReturn(id);
     }
 
     @Override

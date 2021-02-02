@@ -15,7 +15,7 @@ public class SaleReturnServiceImpl implements SaleReturnService {
     private SaleReturnMapper saleReturnMapper;
     @Override
     public int insertSaleReturn(SaleReturn saleReturn) {
-        return 0;
+        return saleReturnMapper.insertSaleReturn(saleReturn);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class SaleReturnServiceImpl implements SaleReturnService {
 
     @Override
     public int deleteSaleReturn(String id) {
-        return 0;
+        return saleReturnMapper.deleteSaleReturn(id);
     }
 
     @Override

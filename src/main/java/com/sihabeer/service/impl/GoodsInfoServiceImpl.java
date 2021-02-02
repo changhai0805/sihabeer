@@ -24,12 +24,12 @@ public class GoodsInfoServiceImpl implements GoodsInfoService {
 
     @Override
     public int insertGoodsInfo(GoodsInfo goodsInfo) {
-        return 0;
+        return goodsInfoMapper.insertGoodsInfo(goodsInfo);
     }
 
     @Override
     public int deleteGoodsInfo(String id) {
-        return 0;
+        return goodsInfoMapper.deleteGoodsInfo(id);
     }
 
     @Override

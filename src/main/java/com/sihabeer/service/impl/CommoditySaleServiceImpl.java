@@ -15,7 +15,7 @@ public class CommoditySaleServiceImpl implements CommoditySaleService {
     private CommoditySaleMapper commoditySaleMapper;
     @Override
     public int insertCommoditySale(CommoditySale commoditySale) {
-        return 0;
+        return commoditySaleMapper.insertCommoditySale(commoditySale);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class CommoditySaleServiceImpl implements CommoditySaleService {
 
     @Override
     public int deleteCommoditySale(String id) {
-        return 0;
+        return commoditySaleMapper.deleteCommoditySale(id);
     }
 
     @Override

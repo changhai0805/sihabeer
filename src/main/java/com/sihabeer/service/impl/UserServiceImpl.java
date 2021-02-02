@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int insertUserInfo(User user) {
-        return 0;
+        return userMapper.insertUserInfo(user);
     }
 
     @Override
@@ -38,5 +38,20 @@ public class UserServiceImpl implements UserService {
     public List<User> findUser(String userName, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         return userMapper.findUser(userName);
+    }
+
+    @Override
+    public int updateStatus(String userId, String status) {
+        return userMapper.updateStatus(userId,status);
+    }
+
+    @Override
+    public int updateUserInfo(User user) {
+        return userMapper.updateUserInfo(user);
+    }
+
+    @Override
+    public int updatePassword(String userId, String password) {
+        return userMapper.updatePassword(userId,password);
     }
 }

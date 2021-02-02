@@ -15,7 +15,7 @@ public class ProduceTaskServiceImpl implements ProduceTaskService {
     private ProduceTaskMapper produceTaskMapper;
     @Override
     public int insertProduceTask(ProduceTask produceTask) {
-        return 0;
+        return produceTaskMapper.insertProduceTask(produceTask);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class ProduceTaskServiceImpl implements ProduceTaskService {
 
     @Override
     public int deleteProducetask(String id) {
-        return 0;
+        return produceTaskMapper.deleteProducetask(id);
     }
 
     @Override

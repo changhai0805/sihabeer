@@ -2,9 +2,7 @@ package com.sihabeer.mapper;
 
 
 import com.sihabeer.entity.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 
 import java.util.List;
@@ -23,4 +21,10 @@ public interface UserMapper {
     User selectUserByIdAndPassword(User user);
     @Select("select * from user where userName=#{userName}")
     List<User> findUser(String userName);
+    @Update("update user set status=#{status} where userId=#{userId}")
+    int updateStatus(@Param("userId") String userId,@Param("status") String status);
+    @Update("update user set userName=#{userName},departmentName=#{departmentName},phone=#{phone},gender=#{gender} where userId=#{userId}")
+    int updateUserInfo(User user);
+    @Update("update user set pwd=#{password} where userId=#{userId}")
+    int updatePassword(@Param("userId")String userId, @Param("password") String password);
 }

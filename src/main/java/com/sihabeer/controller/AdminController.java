@@ -36,4 +36,16 @@ public class AdminController {
         PageInfo<User> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
+    @RequestMapping("updateStatus")
+    public int updateStatus(String userId,String status){
+        return userService.updateStatus(userId,status);
+    }
+    @RequestMapping("updatePassword")
+    public int updatePassword(String userId,String password){
+        return userService.updatePassword(userId,password);
+    }
+    @RequestMapping("updateUserInfo")
+    public int updateUserInfo(User user){
+        return userService.updateUserInfo(user);
+    }
 }

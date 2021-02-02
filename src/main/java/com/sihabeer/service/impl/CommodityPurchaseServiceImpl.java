@@ -15,7 +15,7 @@ public class CommodityPurchaseServiceImpl implements CommodityPurchaseService {
     private CommodityPurchaseMapper commodityPurchaseMapper;
     @Override
     public int insertCommodityPurchase(CommodityPurchase commodityPurchase) {
-        return 0;
+        return commodityPurchaseMapper.insertCommodityPurchase(commodityPurchase);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class CommodityPurchaseServiceImpl implements CommodityPurchaseService {
 
     @Override
     public int deleteCommodityPurchase(String id) {
-        return 0;
+        return commodityPurchaseMapper.deleteCommodityPurchase(id);
     }
 
     @Override

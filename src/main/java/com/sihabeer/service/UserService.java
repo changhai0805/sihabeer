@@ -2,7 +2,9 @@ package com.sihabeer.service;
 
 import com.sihabeer.entity.User;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -14,4 +16,10 @@ public interface UserService {
     int selectUserByIdAndPassword(User user);
 
     List<User> findUser(String userName,int pageNum, int pageSize);
+
+    int updateStatus(String userId,String status);
+
+    int updateUserInfo(User user);
+
+    int updatePassword(String userId,String password);
 }
