@@ -21,4 +21,19 @@ public class AdminController {
         PageInfo<User> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
+    @RequestMapping("insertUser")
+    public int insertUser(User user) {
+        return userService.insertUserInfo(user);
+    }
+    @RequestMapping("login")
+    public int login(User user) {
+
+        return userService.selectUserByIdAndPassword(user);
+    }
+    @RequestMapping("find")
+    public PageInfo<User> findUser(String userName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "6") int pageSize) {
+        List<User> list = userService.findUser(userName,pageNum,pageSize);
+        PageInfo<User> pageInfo = new PageInfo<>(list);
+        return pageInfo;
+    }
 }
