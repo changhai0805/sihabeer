@@ -9,7 +9,7 @@ spring:
   #数据源配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://127.0.0.1:3306/siha_beer?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://118.178.254.81:3306/siha_beer?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -21,7 +21,9 @@ mybatis:
     map-underscore-to-camel-case: true
   typeAliasesPackage: com.sihabeer.entity
   mapperLocations: classpath:mapper/*.xml
-
+logging:
+  level:
+    com.anicert.deployment.mapper: debug
 # 分页配置信息
 pagehelper:
   helper-dialect: mysql

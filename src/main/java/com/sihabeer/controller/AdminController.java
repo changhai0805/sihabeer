@@ -29,7 +29,9 @@ public class AdminController {
     }
     @RequestMapping("login")
     public int login(User user) {
-
+        if(user==null){
+            System.out.println("参数为空！");
+        }
         return userService.selectUserByIdAndPassword(user);
     }
     @RequestMapping("find")
