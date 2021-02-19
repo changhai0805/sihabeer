@@ -23,7 +23,7 @@ mybatis:
   mapperLocations: classpath:mapper/*.xml
 logging:
   level:
-    com.anicert.deployment.mapper: debug
+    com.sihabeer.mapper: debug
 # 分页配置信息
 pagehelper:
   helper-dialect: mysql

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.sihabeer.entity.User;
 import com.sihabeer.mapper.UserMapper;
 import com.sihabeer.service.UserService;
+import com.sihabeer.util.CommonResult;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,14 +25,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int selectUserByIdAndPassword(User user) {
+    public CommonResult selectUserByIdAndPassword(User user) {
         User result = userMapper.selectUserByIdAndPassword(user);
         if(result == null){
-            return 0;
+            return new CommonResult(0,"参数错误或用户名密码错误！",0);
         }else if(result.getStatus().equals("禁用")){
-            return 2;
+            return new CommonResult(2,"用户已被禁用，请联系管理员！",2);
         }
-        return 1;
+        return new CommonResult(1,"登录成功！",result);
     }
 
     @Override

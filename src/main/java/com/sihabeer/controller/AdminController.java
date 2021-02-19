@@ -3,6 +3,7 @@ package com.sihabeer.controller;
 import com.github.pagehelper.PageInfo;
 import com.sihabeer.entity.User;
 import com.sihabeer.service.UserService;
+import com.sihabeer.util.CommonResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class AdminController {
         return userService.insertUserInfo(user);
     }
     @RequestMapping("login")
-    public int login(User user) {
+    public CommonResult login(User user) {
         if(user==null){
             System.out.println("参数为空！");
         }
