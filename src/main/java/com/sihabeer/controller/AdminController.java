@@ -62,4 +62,8 @@ public class AdminController {
     public Boolean checkUserId(String userId){
         return userService.checkUserId(userId);
     }
+    @RequestMapping("deleteUser")
+    public int deleteUser(String userId){
+        return userService.deleteUser(userId);
+    }
 }
