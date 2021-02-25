@@ -58,4 +58,8 @@ public class AdminController {
     public int updateUserInfo(User user){
         return userService.updateUserInfo(user);
     }
+    @RequestMapping("checkUserId")
+    public Boolean checkUserId(String userId){
+        return userService.checkUserId(userId);
+    }
 }

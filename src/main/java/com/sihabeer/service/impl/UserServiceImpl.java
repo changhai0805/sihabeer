@@ -55,4 +55,15 @@ public class UserServiceImpl implements UserService {
     public int updatePassword(String userId, String password) {
         return userMapper.updatePassword(userId,password);
     }
+
+    @Override
+    public Boolean checkUserId(String userId) {
+        User user = userMapper.selectUserByUserId(userId);
+        if(user==null){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
 }

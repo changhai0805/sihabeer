@@ -23,4 +23,6 @@ public interface UserService {
     int updateUserInfo(User user);
 
     int updatePassword(String userId,String password);
+
+    Boolean checkUserId(String userId);
 }
