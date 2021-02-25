@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     public CommonResult selectUserByIdAndPassword(User user) {
         User result = userMapper.selectUserByIdAndPassword(user);
         if(result == null){
-            return new CommonResult(0,"参数错误或用户名密码错误！",0);
+            return new CommonResult(0,"用户名或密码错误！",0);
         }else if(result.getStatus().equals("禁用")){
             return new CommonResult(2,"用户已被禁用，请联系管理员！",2);
         }

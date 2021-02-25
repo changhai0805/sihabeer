@@ -37,6 +37,11 @@ public class AdminController {
     }
     @RequestMapping("find")
     public PageInfo<User> findUser(String userName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "6") int pageSize) {
+        if(userName.trim().equals("")||userName==null){
+            List<User> list = userService.adminListUser(pageNum,pageSize);
+            PageInfo<User> pageInfo = new PageInfo<>(list);
+            return pageInfo;
+        }
         List<User> list = userService.findUser(userName,pageNum,pageSize);
         PageInfo<User> pageInfo = new PageInfo<>(list);
         return pageInfo;
