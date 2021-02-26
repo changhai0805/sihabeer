@@ -34,6 +34,11 @@ public class SaleReturnController {
     }
     @RequestMapping("find")
     public PageInfo<SaleReturn> findByGoodsName(String goodsName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+        if(goodsName == null || goodsName.trim().equals("")){
+            List<SaleReturn> list = saleReturnService.listSaleReturn(pageNum,pageSize);
+            PageInfo<SaleReturn> pageInfo = new PageInfo<>(list);
+            return pageInfo;
+        }
         List<SaleReturn> list = saleReturnService.findSaleReturn(goodsName,pageNum,pageSize);
         PageInfo<SaleReturn> pageInfo = new PageInfo<>(list);
         return pageInfo;

@@ -35,6 +35,11 @@ public class CommodityPurchaseController {
     }
     @RequestMapping("find")
     public PageInfo<CommodityPurchase> findByGoodsName(String goodsName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+        if(goodsName == null || goodsName.trim().equals("")){
+            List<CommodityPurchase> list = commodityPurchaseService.listCommodityPurchase(pageNum,pageSize);
+            PageInfo<CommodityPurchase> pageInfo = new PageInfo<>(list);
+            return pageInfo;
+        }
         List<CommodityPurchase> list = commodityPurchaseService.findCommodityPurchase(goodsName,pageNum,pageSize);
         PageInfo<CommodityPurchase> pageInfo = new PageInfo<>(list);
         return pageInfo;

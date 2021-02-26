@@ -34,6 +34,11 @@ public class CommoditySaleController {
     }
     @RequestMapping("find")
     public PageInfo<CommoditySale> findByGoodsName(String goodsName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+        if(goodsName == null || goodsName.trim().equals("")){
+            List<CommoditySale> list = commoditySaleService.listCommoditySale(pageNum,pageSize);
+            PageInfo<CommoditySale> pageInfo = new PageInfo<>(list);
+            return pageInfo;
+        }
         List<CommoditySale> list = commoditySaleService.findCommoditySale(goodsName,pageNum,pageSize);
         PageInfo<CommoditySale> pageInfo = new PageInfo<>(list);
         return pageInfo;
