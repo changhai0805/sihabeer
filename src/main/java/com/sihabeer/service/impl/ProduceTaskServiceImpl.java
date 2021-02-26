@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProduceTaskServiceImpl implements ProduceTaskService {
@@ -15,6 +16,8 @@ public class ProduceTaskServiceImpl implements ProduceTaskService {
     private ProduceTaskMapper produceTaskMapper;
     @Override
     public int insertProduceTask(ProduceTask produceTask) {
+        String id = UUID.randomUUID().toString();
+        produceTask.setId(id);
         return produceTaskMapper.insertProduceTask(produceTask);
     }
 
