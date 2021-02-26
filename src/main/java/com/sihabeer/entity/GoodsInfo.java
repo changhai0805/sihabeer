@@ -6,26 +6,22 @@ public class GoodsInfo {
     private Integer id;
     private String goodsName;
     private String goodsType;
-    private String creatTime;
-    private Integer orderNum;
-    private String orderPlace;
-    private BigDecimal orderPrice;
-    private String status;
-    private String principal;
+    private String qualityTime;
+    private String fermentMethod;
+    private String alcoholDegree;
+    private String maltConcentration;
 
     public GoodsInfo() {
     }
 
-    public GoodsInfo(Integer id, String goodsName, String goodsType, String creatTime, Integer orderNum, String orderPlace, BigDecimal orderPrice, String status, String principal) {
+    public GoodsInfo(Integer id, String goodsName, String goodsType, String qualityTime, String fermentMethod, String alcoholDegree, String maltConcentration) {
         this.id = id;
         this.goodsName = goodsName;
         this.goodsType = goodsType;
-        this.creatTime = creatTime;
-        this.orderNum = orderNum;
-        this.orderPlace = orderPlace;
-        this.orderPrice = orderPrice;
-        this.status = status;
-        this.principal = principal;
+        this.qualityTime = qualityTime;
+        this.fermentMethod = fermentMethod;
+        this.alcoholDegree = alcoholDegree;
+        this.maltConcentration = maltConcentration;
     }
 
     public Integer getId() {
@@ -52,52 +48,36 @@ public class GoodsInfo {
         this.goodsType = goodsType;
     }
 
-    public String getCreatTime() {
-        return creatTime;
+    public String getQualityTime() {
+        return qualityTime;
     }
 
-    public void setCreatTime(String creatTime) {
-        this.creatTime = creatTime;
+    public void setQualityTime(String qualityTime) {
+        this.qualityTime = qualityTime;
     }
 
-    public Integer getOrderNum() {
-        return orderNum;
+    public String getFermentMethod() {
+        return fermentMethod;
     }
 
-    public void setOrderNum(Integer orderNum) {
-        this.orderNum = orderNum;
+    public void setFermentMethod(String fermentMethod) {
+        this.fermentMethod = fermentMethod;
     }
 
-    public String getOrderPlace() {
-        return orderPlace;
+    public String getAlcoholDegree() {
+        return alcoholDegree;
     }
 
-    public void setOrderPlace(String orderPlace) {
-        this.orderPlace = orderPlace;
+    public void setAlcoholDegree(String alcoholDegree) {
+        this.alcoholDegree = alcoholDegree;
     }
 
-    public BigDecimal getOrderPrice() {
-        return orderPrice;
+    public String getMaltConcentration() {
+        return maltConcentration;
     }
 
-    public void setOrderPrice(BigDecimal orderPrice) {
-        this.orderPrice = orderPrice;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getPrincipal() {
-        return principal;
-    }
-
-    public void setPrincipal(String principal) {
-        this.principal = principal;
+    public void setMaltConcentration(String maltConcentration) {
+        this.maltConcentration = maltConcentration;
     }
 
     @Override
@@ -106,12 +86,10 @@ public class GoodsInfo {
                 "id=" + id +
                 ", goodsName='" + goodsName + '\'' +
                 ", goodsType='" + goodsType + '\'' +
-                ", creatTime='" + creatTime + '\'' +
-                ", orderNum=" + orderNum +
-                ", orderPlace='" + orderPlace + '\'' +
-                ", orderPrice=" + orderPrice +
-                ", status='" + status + '\'' +
-                ", principal='" + principal + '\'' +
+                ", qualityTime='" + qualityTime + '\'' +
+                ", fermentMethod='" + fermentMethod + '\'' +
+                ", alcoholDegree='" + alcoholDegree + '\'' +
+                ", maltConcentration='" + maltConcentration + '\'' +
                 '}';
     }
 }

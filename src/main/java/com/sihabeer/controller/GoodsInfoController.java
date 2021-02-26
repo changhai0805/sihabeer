@@ -3,6 +3,7 @@ package com.sihabeer.controller;
 import com.github.pagehelper.PageInfo;
 import com.sihabeer.entity.CommoditySale;
 import com.sihabeer.entity.GoodsInfo;
+import com.sihabeer.entity.ProduceTask;
 import com.sihabeer.service.GoodsInfoService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,8 +33,18 @@ public class GoodsInfoController {
     public int delete(String id){
         return goodsInfoService.deleteGoodsInfo(id);
     }
+    @RequestMapping("update")
+    public int updateGoodsInfo(GoodsInfo goodsInfo){
+        return goodsInfoService.updateGoodsInfo(goodsInfo);
+    }
+
     @RequestMapping("find")
     public PageInfo<GoodsInfo> findByGoodsName(String goodsName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+        if(goodsName.trim().equals("")||goodsName==null){
+            List<GoodsInfo> list = goodsInfoService.list(pageNum,pageSize);
+            PageInfo<GoodsInfo> pageInfo = new PageInfo<>(list);
+            return pageInfo;
+        }
         List<GoodsInfo> list = goodsInfoService.findGoodsInfo(goodsName,pageNum,pageSize);
         PageInfo<GoodsInfo> pageInfo = new PageInfo<>(list);
         return pageInfo;

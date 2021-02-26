@@ -2,10 +2,7 @@ package com.sihabeer.mapper;
 
 import com.sihabeer.entity.GoodsInfo;
 import com.sihabeer.entity.ProduceTask;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +17,6 @@ public interface ProduceTaskMapper {
     int deleteProducetask(String id);
     @Select("select * from producetask where goods_name=#{goodsName}")
     List<ProduceTask> findProduceTask(String goodsName);
+    @Update("update producetask set goods_name=#{goodsName},goods_type=#{goodsType},produce_num=#{produceNum},produce_daily=#{produceDaily},start_time=#{startTime},end_time=#{endTime},status=#{status},principal=#{principal} where id=#{id}")
+    int updateProduceTask(ProduceTask produceTask);
 }

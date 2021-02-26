@@ -16,4 +16,6 @@ public interface GoodsInfoService {
     int deleteGoodsInfo(String id);
 
     List<GoodsInfo> findGoodsInfo(String goodsName,int pageNum, int pageSize);
+
+    int updateGoodsInfo(GoodsInfo goodsInfo);
 }

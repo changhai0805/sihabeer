@@ -1,5 +1,6 @@
 package com.sihabeer.service;
 
+import com.sihabeer.entity.GoodsInfo;
 import com.sihabeer.entity.ProduceTask;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -15,4 +16,6 @@ public interface ProduceTaskService {
     int deleteProducetask(String id);
 
     List<ProduceTask> findProduceTask(String goodsName,int pageNum, int pageSize);
+
+    int updateProduceTask(ProduceTask produceTask);
 }

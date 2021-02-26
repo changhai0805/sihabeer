@@ -37,4 +37,9 @@ public class GoodsInfoServiceImpl implements GoodsInfoService {
         PageHelper.startPage(pageNum, pageSize);
         return goodsInfoMapper.findGoodsInfo(goodsName);
     }
+
+    @Override
+    public int updateGoodsInfo(GoodsInfo goodsInfo) {
+        return goodsInfoMapper.updateGoodsInfo(goodsInfo);
+    }
 }

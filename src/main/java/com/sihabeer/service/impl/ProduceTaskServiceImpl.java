@@ -34,4 +34,9 @@ public class ProduceTaskServiceImpl implements ProduceTaskService {
         PageHelper.startPage(pageNum, pageSize);
         return produceTaskMapper.findProduceTask(goodsName);
     }
+
+    @Override
+    public int updateProduceTask(ProduceTask produceTask) {
+        return produceTaskMapper.updateProduceTask(produceTask);
+    }
 }
