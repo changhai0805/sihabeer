@@ -40,7 +40,8 @@ public class GoodsInfoController {
 
     @RequestMapping("find")
     public PageInfo<GoodsInfo> findByGoodsName(String goodsName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
-        if(goodsName.trim().equals("")||goodsName==null){
+
+        if( goodsName== null || goodsName.trim().equals("")){
             List<GoodsInfo> list = goodsInfoService.list(pageNum,pageSize);
             PageInfo<GoodsInfo> pageInfo = new PageInfo<>(list);
             return pageInfo;

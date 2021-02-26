@@ -40,7 +40,7 @@ public class ProduceTaskController {
 
     @RequestMapping("find")
     public PageInfo<ProduceTask> findByGoodsName(String goodsName,@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
-        if(goodsName.trim().equals("")||goodsName==null){
+        if(goodsName==null || goodsName.trim().equals("")){
             List<ProduceTask> list = produceTaskService.listProduceTask(pageNum,pageSize);
             PageInfo<ProduceTask> pageInfo = new PageInfo<>(list);
             return pageInfo;
