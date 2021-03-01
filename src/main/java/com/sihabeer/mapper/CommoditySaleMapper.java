@@ -11,7 +11,7 @@ public interface CommoditySaleMapper {
     @Insert("insert into commoditysale(id,goods_name,goods_type,creat_time,order_num,order_place,order_price,status,principal)" +
             "values(#{id},#{goodsName},#{goodsType},#{creatTime},#{orderNum},#{orderPlace},#{orderPrice},#{status},#{principal}) ")
     int insertCommoditySale(CommoditySale commoditySale);
-    @Select("select * from commoditysale")
+    @Select("select * from commoditysale order by creat_time desc")
     List<CommoditySale> listCommoditySale();
     @Delete("delete from commoditysale where id=#{id}")
     int deleteCommoditySale(String id);

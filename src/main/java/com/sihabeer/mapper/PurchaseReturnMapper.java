@@ -12,7 +12,7 @@ public interface PurchaseReturnMapper {
     @Insert("insert into purchasereturn(id,goods_name,buy_time,return_reason,return_time,status,principal) " +
             "values(#{id},#{goodsName},#{buyTime},#{returnReason},#{returnTime},#{status},#{principal})")
     int insertPurchaseReturn(PurchaseReturn purchaseReturn);
-    @Select("select * from purchasereturn")
+    @Select("select * from purchasereturn order by return_time desc")
     List<PurchaseReturn> listPurchaseReturn();
     @Delete("delete from purchasereturn where id=#{id}")
     int deletePurchaseReturn(String id);

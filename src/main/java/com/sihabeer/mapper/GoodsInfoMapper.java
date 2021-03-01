@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface GoodsInfoMapper {
-    @Select("select * from goodsinfo")
+    @Select("select * from goodsinfo order by id desc")
     List<GoodsInfo> list();
     @Insert("insert into goodsinfo(id,goods_name,goods_type,quality_time,ferment_method,alcohol_degree,malt_concentration) " +
             "values(#{id},#{goodsName},#{goodsType},#{qualityTime},#{fermentMethod},#{alcoholDegree},#{maltConcentration})")

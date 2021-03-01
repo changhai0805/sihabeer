@@ -10,7 +10,7 @@ public interface CommodityPurchaseMapper {
     @Insert("insert into commoditypurchase(id,goods_name,goods_type,goods_place,buy_num,buy_price,buy_time,status,principal) " +
             "values(#{id},#{goodsName},#{goodsType},#{goodsPlace},#{buyNum},#{buyPrice},#{buyTime},#{status},#{principal})")
     int insertCommodityPurchase(CommodityPurchase commodityPurchase);
-    @Select("select * from commoditypurchase")
+    @Select("select * from commoditypurchase order by buy_time desc")
     List<CommodityPurchase> listCommodityPurchase();
     @Delete("delete from commoditypurchase where id=#{id}")
     int deleteCommodityPurchase(String id);

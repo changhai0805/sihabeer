@@ -11,7 +11,7 @@ public interface SaleReturnMapper {
     @Insert("insert into salereturn(id,goods_name,goods_type,return_time,return_reason,return_price,status,principal) " +
             "values(#{id},#{goodsName},#{goodsType},#{returnTime},#{returnReason},#{returnPrice},#{status},#{principal})")
     int insertSaleReturn(SaleReturn saleReturn);
-    @Select("select * from salereturn")
+    @Select("select * from salereturn order by return_time desc")
     List<SaleReturn> listSaleReturn();
     @Delete("delete from salereturn where id=#{id}")
     int deleteSaleReturn(String id);
