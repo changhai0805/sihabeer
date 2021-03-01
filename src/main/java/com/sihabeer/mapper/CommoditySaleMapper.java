@@ -2,10 +2,7 @@ package com.sihabeer.mapper;
 
 import com.sihabeer.entity.CommodityPurchase;
 import com.sihabeer.entity.CommoditySale;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +17,6 @@ public interface CommoditySaleMapper {
     int deleteCommoditySale(String id);
     @Select("select * from commoditysale where goods_name=#{goodsName}")
     List<CommoditySale> findCommoditySale(String goodsName);
+    @Update("update commoditysale set goods_name=#{goodsName},goods_type=#{goodsType},creat_time=#{creatTime},order_num=#{orderNum},order_place=#{orderPlace},order_price=#{orderPrice},status=#{status},principal=#{principal} where id =#{id}")
+    int updateCommoditySale(CommoditySale commoditySale);
 }

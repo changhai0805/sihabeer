@@ -16,4 +16,6 @@ public interface CommoditySaleService {
     int deleteCommoditySale(String id);
 
     List<CommoditySale> findCommoditySale(String goodsName,int pageNum, int pageSize);
+
+    int updateCommoditySale(CommoditySale commoditySale);
 }
