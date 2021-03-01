@@ -66,4 +66,8 @@ public class AdminController {
     public int deleteUser(String userId){
         return userService.deleteUser(userId);
     }
+    @RequestMapping("updatePasswordByName")
+    public int updatePasswordByName(String userName,String pwd){
+        return userService.updatePasswordByUserName(userName,pwd);
+    }
 }

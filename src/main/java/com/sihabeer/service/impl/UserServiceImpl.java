@@ -21,7 +21,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int insertUserInfo(User user) {
-        return userMapper.insertUserInfo(user);
+        if(user!=null){
+            String userName = user.getUserName();
+            List<User> list = userMapper.selectByName(userName);
+            if(list!=null || list.size()>0){
+                String id= list.get(0).getUserId();
+                user.setUserId(id);
+                return userMapper.updateUser(user);
+            }
+            return userMapper.insertUserInfo(user);
+        }else {
+            return 0;
+        }
+
     }
 
     @Override
@@ -52,8 +64,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updatePassword(String userId, String password) {
-        return userMapper.updatePassword(userId,password);
+    public int updatePassword(String userId, String pwd) {
+        return userMapper.updatePassword(userId,pwd);
     }
 
     @Override
@@ -70,5 +82,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int deleteUser(String userId) {
         return userMapper.deleteUser(userId);
+    }
+
+    @Override
+    public int updatePasswordByUserName(String userName, String password) {
+        return userMapper.updatePasswordByUserName(userName,password);
     }
 }

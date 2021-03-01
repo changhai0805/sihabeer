@@ -22,9 +22,11 @@ public interface UserService {
 
     int updateUserInfo(User user);
 
-    int updatePassword(String userId,String password);
+    int updatePassword(String userId,String pwd);
 
     Boolean checkUserId(String userId);
 
     int deleteUser(String userId);
+
+    int updatePasswordByUserName(String userName,String password);
 }
