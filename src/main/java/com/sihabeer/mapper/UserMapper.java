@@ -27,8 +27,14 @@ public interface UserMapper {
     int updateStatus(@Param("userId") String userId,@Param("status") String status);
     @Update("update user set userName=#{userName},departmentName=#{departmentName},phone=#{phone},gender=#{gender} where userId=#{userId}")
     int updateUserInfo(User user);
-    @Update("update user set pwd=#{password} where userId=#{userId}")
-    int updatePassword(@Param("userId")String userId, @Param("password") String password);
+    @Update("update user set userName=#{userName},departmentName=#{departmentName},pwd=#{pwd},permission=#{permission},phone=#{phone},gender=#{gender} where userId=#{userId}")
+    int updateUser(User user);
+    @Update("update user set pwd=#{pwd} where userId=#{userId}")
+    int updatePassword(@Param("userId")String userId, @Param("pwd") String pwd);
     @Delete("delete from user where userId=#{userId}")
     int deleteUser(String userId);
+    @Update("update user set pwd=#{pwd} where userName=#{userName}")
+    int updatePasswordByUserName(@Param("userName")String userName, @Param("pwd") String pwd);
+    @Select("select * from user where userName=#{userName}")
+    List<User> selectByName(String userName);
 }
