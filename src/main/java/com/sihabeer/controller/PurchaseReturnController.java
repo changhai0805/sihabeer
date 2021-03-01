@@ -3,6 +3,7 @@ package com.sihabeer.controller;
 import com.github.pagehelper.PageInfo;
 import com.sihabeer.entity.ProduceTask;
 import com.sihabeer.entity.PurchaseReturn;
+import com.sihabeer.entity.SaleReturn;
 import com.sihabeer.service.PurchaseReturnService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +43,9 @@ public class PurchaseReturnController {
         List<PurchaseReturn> list = purchaseReturnService.findPurchaseReturn(goodsName,pageNum,pageSize);
         PageInfo<PurchaseReturn> pageInfo = new PageInfo<>(list);
         return pageInfo;
+    }
+    @RequestMapping("update")
+    public int updatePurchaseReturn(PurchaseReturn purchaseReturn){
+        return purchaseReturnService.updatePurchaseReturn(purchaseReturn);
     }
 }

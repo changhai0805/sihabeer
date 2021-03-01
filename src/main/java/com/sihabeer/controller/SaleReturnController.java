@@ -43,6 +43,10 @@ public class SaleReturnController {
         PageInfo<SaleReturn> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
+    @RequestMapping("update")
+    public int updateSaleReturn(SaleReturn saleReturn){
+        return saleReturnService.updateSaleReturn(saleReturn);
+    }
     @RequestMapping("updateStatus")
     public int updateStatus(String id,String status){
         return saleReturnService.updateStatus(id,status);
