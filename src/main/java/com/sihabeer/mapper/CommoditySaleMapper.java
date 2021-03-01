@@ -19,4 +19,8 @@ public interface CommoditySaleMapper {
     List<CommoditySale> findCommoditySale(String goodsName);
     @Update("update commoditysale set goods_name=#{goodsName},goods_type=#{goodsType},creat_time=#{creatTime},order_num=#{orderNum},order_place=#{orderPlace},order_price=#{orderPrice},status=#{status},principal=#{principal} where id =#{id}")
     int updateCommoditySale(CommoditySale commoditySale);
+    @Update("update commoditysale set status=#{status} where id=#{id}")
+    int updateStatus(@Param("id")String id,@Param("status")String status);
+    @Select("select * from commoditysale where id=#{id}")
+    List<CommoditySale> findById(String id);
 }

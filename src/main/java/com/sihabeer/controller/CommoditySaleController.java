@@ -45,7 +45,11 @@ public class CommoditySaleController {
         return pageInfo;
     }
     @RequestMapping("update")
-    public int updateGoodsInfo(CommoditySale commoditySale){
+    public int updateCommoditySale(CommoditySale commoditySale){
         return commoditySaleService.updateCommoditySale(commoditySale);
+    }
+    @RequestMapping("updateStatus")
+    public int updateStatus(String id,String status){
+        return commoditySaleService.updateStatus(id,status);
     }
 }

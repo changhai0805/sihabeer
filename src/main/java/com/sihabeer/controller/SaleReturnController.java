@@ -24,10 +24,10 @@ public class SaleReturnController {
         PageInfo<SaleReturn> pageInfo = new PageInfo<>(list);
         return pageInfo;
     }
-    @RequestMapping("insert")
-    public int insert(SaleReturn saleReturn){
-        return saleReturnService.insertSaleReturn(saleReturn);
-    }
+//    @RequestMapping("insert")
+//    public int insert(SaleReturn saleReturn){
+//        return saleReturnService.insertSaleReturn(saleReturn);
+//    }
     @RequestMapping("delete")
     public int delete(String id){
         return saleReturnService.deleteSaleReturn(id);
@@ -42,5 +42,9 @@ public class SaleReturnController {
         List<SaleReturn> list = saleReturnService.findSaleReturn(goodsName,pageNum,pageSize);
         PageInfo<SaleReturn> pageInfo = new PageInfo<>(list);
         return pageInfo;
+    }
+    @RequestMapping("updateStatus")
+    public int updateStatus(String id,String status){
+        return saleReturnService.updateStatus(id,status);
     }
 }

@@ -2,7 +2,9 @@ package com.sihabeer.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.sihabeer.entity.CommoditySale;
+import com.sihabeer.entity.SaleReturn;
 import com.sihabeer.mapper.CommoditySaleMapper;
+import com.sihabeer.mapper.SaleReturnMapper;
 import com.sihabeer.service.CommoditySaleService;
 import com.sihabeer.util.Utils;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ import java.util.UUID;
 public class CommoditySaleServiceImpl implements CommoditySaleService {
     @Resource
     private CommoditySaleMapper commoditySaleMapper;
+    @Resource
+    private SaleReturnMapper saleReturnMapper;
     @Override
     public int insertCommoditySale(CommoditySale commoditySale) {
         commoditySale.setId(UUID.randomUUID().toString());
@@ -30,6 +34,34 @@ public class CommoditySaleServiceImpl implements CommoditySaleService {
 
     @Override
     public int deleteCommoditySale(String id) {
+        List<CommoditySale> list = commoditySaleMapper.findById(id);
+        CommoditySale commoditySale = list.get(0);
+        SaleReturn saleReturn = new SaleReturn();
+        try {
+            saleReturn.setGoodsName(commoditySale.getGoodsName());
+        }catch (Exception e){
+            e.getMessage();
+        }
+        try {
+            saleReturn.setGoodsType(commoditySale.getGoodsType());
+        }catch (Exception e){
+            e.getMessage();
+        }
+        try {
+            saleReturn.setPrincipal(commoditySale.getPrincipal());
+        }catch (Exception e){
+            e.getMessage();
+        }
+        try {
+            saleReturn.setReturnPrice(commoditySale.getOrderPrice());
+        }catch (Exception e){
+            e.getMessage();
+        }
+        saleReturn.setId(commoditySale.getId());
+        saleReturn.setReturnTime(Utils.getDateTime());
+        saleReturn.setReturnReason("暂无市场需求");
+        saleReturn.setStatus("待退货");
+        saleReturnMapper.insertSaleReturn(saleReturn);
         return commoditySaleMapper.deleteCommoditySale(id);
     }
 
@@ -42,5 +74,10 @@ public class CommoditySaleServiceImpl implements CommoditySaleService {
     @Override
     public int updateCommoditySale(CommoditySale commoditySale) {
         return commoditySaleMapper.updateCommoditySale(commoditySale);
+    }
+
+    @Override
+    public int updateStatus(String id, String status) {
+        return commoditySaleMapper.updateStatus(id,status);
     }
 }

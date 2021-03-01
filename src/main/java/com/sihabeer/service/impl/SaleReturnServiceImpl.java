@@ -1,6 +1,7 @@
 package com.sihabeer.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.sihabeer.entity.CommoditySale;
 import com.sihabeer.entity.SaleReturn;
 import com.sihabeer.mapper.SaleReturnMapper;
 import com.sihabeer.service.SaleReturnService;
@@ -33,5 +34,10 @@ public class SaleReturnServiceImpl implements SaleReturnService {
     public List<SaleReturn> findSaleReturn(String goodsName, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         return saleReturnMapper.findSaleReturn(goodsName);
+    }
+
+    @Override
+    public int updateStatus(String id, String status) {
+        return saleReturnMapper.updateStatus(id,status);
     }
 }

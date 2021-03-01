@@ -1,5 +1,6 @@
 package com.sihabeer.service;
 
+import com.sihabeer.entity.CommoditySale;
 import com.sihabeer.entity.SaleReturn;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -16,4 +17,6 @@ public interface SaleReturnService {
     int deleteSaleReturn(String id);
 
     List<SaleReturn> findSaleReturn(String goodsName,int pageNum, int pageSize);
+
+    int updateStatus(String id, String status);
 }
