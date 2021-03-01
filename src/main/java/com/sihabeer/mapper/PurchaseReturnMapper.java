@@ -2,10 +2,7 @@ package com.sihabeer.mapper;
 
 import com.sihabeer.entity.ProduceTask;
 import com.sihabeer.entity.PurchaseReturn;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,4 +18,8 @@ public interface PurchaseReturnMapper {
     int deletePurchaseReturn(String id);
     @Select("select * from purchasereturn where goods_name=#{goodsName}")
     List<PurchaseReturn> findPurchaseReturn(String goodsName);
+    @Update("update purchasereturn set goods_name=#{goodsName},buy_time=#{buyTime},return_reason=#{returnReason},return_time=#{returnTime},status=#{status},principal=#{principal} where id=#{id}")
+    int updatePurchaseReturn(PurchaseReturn purchaseReturn);
+    @Update("update purchasereturn set status=#{status} where id=#{id}")
+    int updateStatus(@Param("id")String id,@Param("status")String status);
 }

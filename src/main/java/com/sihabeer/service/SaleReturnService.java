@@ -19,4 +19,6 @@ public interface SaleReturnService {
     List<SaleReturn> findSaleReturn(String goodsName,int pageNum, int pageSize);
 
     int updateStatus(String id, String status);
+
+    int updateSaleReturn(SaleReturn saleReturn);
 }

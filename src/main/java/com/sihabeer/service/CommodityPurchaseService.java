@@ -1,6 +1,7 @@
 package com.sihabeer.service;
 
 import com.sihabeer.entity.CommodityPurchase;
+import com.sihabeer.entity.CommoditySale;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -16,4 +17,8 @@ public interface CommodityPurchaseService {
     int deleteCommodityPurchase(String id);
 
     List<CommodityPurchase> findCommodityPurchase(String goodsName,int pageNum, int pageSize);
+
+    int updateCommodityPurchase(CommodityPurchase commodityPurchase);
+
+    int updateStatus(String id,String status);
 }

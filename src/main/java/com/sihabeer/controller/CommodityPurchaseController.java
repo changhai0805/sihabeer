@@ -2,6 +2,7 @@ package com.sihabeer.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.sihabeer.entity.CommodityPurchase;
+import com.sihabeer.entity.CommoditySale;
 import com.sihabeer.entity.User;
 import com.sihabeer.service.CommodityPurchaseService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -43,5 +44,13 @@ public class CommodityPurchaseController {
         List<CommodityPurchase> list = commodityPurchaseService.findCommodityPurchase(goodsName,pageNum,pageSize);
         PageInfo<CommodityPurchase> pageInfo = new PageInfo<>(list);
         return pageInfo;
+    }
+    @RequestMapping("update")
+    public int updateCommodityPurchase(CommodityPurchase commodityPurchase){
+        return commodityPurchaseService.updateCommodityPurchase(commodityPurchase);
+    }
+    @RequestMapping("updateStatus")
+    public int updateStatus(String id,String status){
+        return commodityPurchaseService.updateStatus(id,status);
     }
 }

@@ -35,4 +35,14 @@ public class PurchaseReturnServiceImpl implements PurchaseReturnService {
         PageHelper.startPage(pageNum, pageSize);
         return purchaseReturnMapper.findPurchaseReturn(goodsName);
     }
+
+    @Override
+    public int updatePurchaseReturn(PurchaseReturn purchaseReturn) {
+        return purchaseReturnMapper.updatePurchaseReturn(purchaseReturn);
+    }
+
+    @Override
+    public int updateStatus(String id, String status) {
+        return purchaseReturnMapper.updateStatus(id,status);
+    }
 }

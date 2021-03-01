@@ -19,4 +19,6 @@ public interface SaleReturnMapper {
     List<SaleReturn> findSaleReturn(String goodsName);
     @Update("update salereturn set status=#{status} where id=#{id}")
     int updateStatus(@Param("id")String id,@Param("status")String status);
+    @Update("update salereturn set goods_name=#{goodsName},goods_type=#{goodsType},return_time=#{returnTime},return_reason=#{returnReason},return_price=#{returnPrice},status=#{status},principal=#{principal} where id=#{id}")
+    int updateSaleReturn(SaleReturn saleReturn);
 }

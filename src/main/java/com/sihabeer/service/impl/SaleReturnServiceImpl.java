@@ -40,4 +40,9 @@ public class SaleReturnServiceImpl implements SaleReturnService {
     public int updateStatus(String id, String status) {
         return saleReturnMapper.updateStatus(id,status);
     }
+
+    @Override
+    public int updateSaleReturn(SaleReturn saleReturn) {
+        return saleReturnMapper.updateSaleReturn(saleReturn);
+    }
 }
