@@ -48,4 +48,8 @@ public class PurchaseReturnController {
     public int updatePurchaseReturn(PurchaseReturn purchaseReturn){
         return purchaseReturnService.updatePurchaseReturn(purchaseReturn);
     }
+    @RequestMapping("updateStatus")
+    public int updateStatus(String id,String status){
+        return purchaseReturnService.updateStatus(id,status);
+    }
 }
